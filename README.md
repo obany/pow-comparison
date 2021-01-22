@@ -2,36 +2,55 @@
 
 Comparing the different implementations of POW.
 
-Tests performed on Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
+Tests performed on Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz - 12 Logical Processors
+
+Go version built with `go build -ldflags "-s -w"`
+
+Rust version built with `cargo build --release`
+
+## Current Mainnet MWM 14
+
+```shell
+size 1024, duration 5.07s
+size 2048, duration 4.11s
+size 3072, duration 3.00s
+size 4096, duration 5.07s
+size 5120, duration 14.39s
+size 6144, duration 3.73s
+size 7168, duration 8.10s
+size 8192, duration 3.98s
+size 9216, duration 22.47s
+size 10240, duration 18.64s
+```
 
 ## Target Score 100
 
 ```shell
 go - workers 12, target score 100.000000
-size 1024, duration 0.01s, nonce 15372286728091295154
-size 2048, duration 0.18s, nonce 9223372036854803531
-size 3072, duration 0.07s, nonce 9223372036854785404
-size 4096, duration 0.70s, nonce 9223372036854892330
+size 1024, duration 0.01s, nonce 4611686018427389065
+size 2048, duration 0.16s, nonce 9223372036854803531
+size 3072, duration 0.05s, nonce 9223372036854785404
+size 4096, duration 0.62s, nonce 9223372036854892330
 size 5120, duration 0.01s, nonce 1537228672809130027
-size 6144, duration 0.99s, nonce 3074457345618421685
-size 7168, duration 1.17s, nonce 16909515400900620247
+size 6144, duration 0.86s, nonce 3074457345618421685
+size 7168, duration 1.05s, nonce 16909515400900620247
 size 8192, duration 0.02s, nonce 4611686018427391282
 size 9216, duration 0.02s, nonce 4611686018427391597
-size 10240, duration 1.89s, nonce 13835058055282470469
+size 10240, duration 1.64s, nonce 13835058055282470469
 ```
 
 ```shell
 rust - workers 12, target score 100
-size 1024, duration 0.49s, nonce 4611686018427389065
-size 2048, duration 10.94s, nonce 9223372036854803531
-size 3072, duration 4.11s, nonce 9223372036854785404
-size 4096, duration 60.36s, nonce 9223372036854892330
-size 5120, duration 0.46s, nonce 1537228672809130027
-size 6144, duration 94.55s, nonce 3074457345618421685
-size 7168, duration 106.27s, nonce 16909515400900620247
-size 8192, duration 2.23s, nonce 4611686018427391282
-size 9216, duration 2.14s, nonce 4611686018427391597
-size 10240, duration 186.69s, nonce 13835058055282470469
+size 1024, duration 0.01s, nonce 4611686018427389065
+size 2048, duration 0.30s, nonce 9223372036854803531
+size 3072, duration 0.10s, nonce 9223372036854785404
+size 4096, duration 1.35s, nonce 9223372036854892330
+size 5120, duration 0.01s, nonce 1537228672809130027
+size 6144, duration 1.75s, nonce 3074457345618421685
+size 7168, duration 2.10s, nonce 16909515400900620247
+size 8192, duration 0.04s, nonce 4611686018427391282
+size 9216, duration 0.08s, nonce 4611686018427391597
+size 10240, duration 3.26s, nonce 13835058055282470469
 ```
 
 ```shell
@@ -52,27 +71,30 @@ size 10240, duration 473.18s, nonce 1124210
 
 ```
 go - workers 12, target score 1000.000000
-size 1024, duration 0.02s, nonce 15372286728091295154
-size 2048, duration 2.63s, nonce 16909515400900866256
-size 3072, duration 0.83s, nonce 16909515400900572728
-size 4096, duration 4.26s, nonce 7686143364046434544
-size 5120, duration 11.21s, nonce 16909515400902104101
-size 6144, duration 18.34s, nonce 16909515400902830179
-size 7168, duration 12.74s, nonce 16909515400901938544
-size 8192, duration 1.32s, nonce 4611686018427558319
-size 9216, duration 13.78s, nonce 4611686018429158385
-size 10240, duration 18.51s, nonce 16909515400902825374
+size 1024, duration 0.01s, nonce 15372286728091295154
+size 2048, duration 2.45s, nonce 16909515400900866256
+size 3072, duration 0.90s, nonce 16909515400900572728
+size 4096, duration 4.28s, nonce 7686143364046434544
+size 5120, duration 10.23s, nonce 16909515400902104101
+size 6144, duration 17.58s, nonce 16909515400902830179
+size 7168, duration 11.09s, nonce 16909515400901938544
+size 8192, duration 1.26s, nonce 4611686018427558319
+size 9216, duration 13.48s, nonce 4611686018429158385
+size 10240, duration 19.72s, nonce 16909515400902825374
 ```
 
 ```shell
 rust - workers 12, target score 1000
-size 1024, duration 0.84s, nonce 15372286728091295154
-size 2048, duration 235.71s, nonce 16909515400900866256
-size 3072, duration 81.12s, nonce 16909515400900572728
-size 4096, duration 437.97s, nonce 7686143364046434544
-size 5120, duration 933.24s, nonce 16909515400902104101
-size 6144, duration 1376.01s, nonce 16909515400902830179
-... aborted as 6K required 23mins!!!
+size 1024, duration 0.03s, nonce 15372286728091295154
+size 2048, duration 4.49s, nonce 16909515400900866256
+size 3072, duration 1.67s, nonce 16909515400900572728
+size 4096, duration 10.99s, nonce 7686143364046434544
+size 5120, duration 26.56s, nonce 16909515400902104101
+size 6144, duration 36.32s, nonce 16909515400902830179
+size 7168, duration 22.80s, nonce 16909515400901938544
+size 8192, duration 2.66s, nonce 4611686018427558319
+size 9216, duration 26.88s, nonce 4611686018429158385
+size 10240, duration 36.28s, nonce 16909515400902825374
 ```
 
 > JS Is too slow for this target score
@@ -81,19 +103,31 @@ size 6144, duration 1376.01s, nonce 16909515400902830179
 
 ```shell
 go - workers 12, target score 4000.000000
-size 1024, duration 1.20s, nonce 7686143364045858546
-size 2048, duration 6.16s, nonce 921795
-size 3072, duration 1.17s, nonce 16909515400900572728
-size 4096, duration 8.50s, nonce 16909515400901476116
-size 5120, duration 81.49s, nonce 7686143364055780276
-size 6144, duration 30.40s, nonce 1537228672812836235
-size 7168, duration 72.22s, nonce 12297829382482483708
-size 8192, duration 12.38s, nonce 4611686018428800033
-size 9216, duration 112.13s, nonce 13800559
-size 10240, duration 56.28s, nonce 15372286728098143908
+size 1024, duration 1.19s, nonce 7686143364045858546
+size 2048, duration 5.84s, nonce 921795
+size 3072, duration 0.83s, nonce 16909515400900572728
+size 4096, duration 6.42s, nonce 16909515400901476116
+size 5120, duration 84.58s, nonce 7686143364055780276
+size 6144, duration 27.77s, nonce 1537228672812836235
+size 7168, duration 69.07s, nonce 12297829382482483708
+size 8192, duration 10.55s, nonce 4611686018428800033
+size 9216, duration 116.92s, nonce 13800559
+size 10240, duration 56.15s, nonce 15372286728098143908
 ```
 
-> Rust Is too slow for this target score
+```shell
+rust - workers 12, target score 4000
+size 1024, duration 2.17s, nonce 7686143364045858546
+size 2048, duration 12.88s, nonce 921795
+size 3072, duration 2.35s, nonce 16909515400900572728
+size 4096, duration 17.75s, nonce 16909515400901476116
+size 5120, duration 161.37s, nonce 7686143364055780276
+size 6144, duration 60.96s, nonce 1537228672812836235
+size 7168, duration 160.58s, nonce 12297829382482483708
+size 8192, duration 21.72s, nonce 4611686018428800033
+size 9216, duration 221.78s, nonce 13800559
+size 10240, duration 106.74s, nonce 15372286728098143908
+```
 
 > JS Is too slow for this target score
 
